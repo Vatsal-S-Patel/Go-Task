@@ -1,0 +1,115 @@
+
+/* Boilerplate CSS */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'poppins';
+    background-image: linear-gradient(45deg, #0a0a0a, #3a4452);
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Calculator div style */
+.calculator {
+    background-color: rgba(0, 0, 0, 0.289);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(113, 115, 119, 0.5);
+}
+
+/* Styles for both number container and operator container */
+.container {
+    display: flex;
+}
+
+/* Style for Top row */
+.top-row {
+    width: 100%;
+}
+
+/* style for Operator Container */
+.operator-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 3px;
+}
+
+/* Style for the inputField */
+input {
+    background-color: transparent;
+    border-radius: 6px;
+    width: 300px;
+    padding: 14px;
+    margin: 10px 6px;
+    font-size: 4rem;
+    cursor: pointer;
+    color: #f3f3f3;
+    text-align: right;
+    box-shadow: 0 0 2px rgba(113, 115, 119, 0.5);
+}
+
+input::placeholder {
+    color: #f3f3f3;
+}
+
+/* Style for all the button, both operator and numbers */
+button {
+    border: none;
+    width: 6rem;
+    height: 6rem;
+    margin: 0.8rem;
+    border-radius: 15px;
+    background: linear-gradient(45deg, rgba(167, 167, 167, 0.265), rgba(167, 166, 166, 0.133));
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+    font-weight: 600;
+    outline: none;
+}
+
+button:hover {
+    filter: drop-shadow(0 0 2px #f3f3f347);
+}
+
+/* Expand height of particular button */
+.expand-button-height {
+    height: 32%;
+}
+
+/* Expand width of particular button */
+.expand-button-width {
+    width: 59%;
+}
+
+/* Style for all operator button */
+.operator {
+    background:  radial-gradient(circle at 10% 20%, rgba(26, 179, 203, 0.488) 0%, rgba(0, 102, 161, 0.55) 90.1%);
+    font-size: 2.7rem;
+    font-weight: 500;
+}
+
+/* Style for equal button */
+.equal {
+    background-color: rgba(45, 167, 194, 0.506);
+} 

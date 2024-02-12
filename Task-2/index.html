@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-2-Calculator</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- Main Background -->
+    <main>
+
+        <!-- Calculator Container -->
+        <div class="calculator">
+
+            <!-- Input Field that displays all calculations and answer -->
+            <input type="text" placeholder="0" disabled class="input-box" id="inputField">
+
+            <!-- Top row of buttons includes clear buttons and operators -->
+            <div class="top-row">
+                <button class="clear">AC</button>
+                <button class="clear">C</button>
+                <button class="operator">/</button>
+                <button class="operator">*</button>
+            </div>
+
+            <!-- Container that holds both numbered buttons and operators -->
+            <div class="container">
+        
+                <!--  Container holds numbered buttons -->
+                <div class="numbers-container">
+                    <div>
+                        <button>7</button>
+                        <button>8</button>
+                        <button>9</button>
+                    </div>
+                    <div>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>6</button>
+                    </div>
+                    <div>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                    </div>
+                    <div>
+                        <button class="expand-button-width">0</button>
+                        <button>.</button>
+                    </div>
+                </div>
+
+                <!-- Container holds operators button -->
+                <div class="operator-container">
+                    <button class="operator">-</button>
+                    <button class="operator expand-button-height">+</button>
+                    <button class="equal expand-button-height">=</button>
+                </div>
+
+            </div>
+                
+        </div>
+        
+    </main>
+ 
+    <!-- JavaScript Files -->
+    <script src="./script.js"></script>
+    
+</body>
+</html>
