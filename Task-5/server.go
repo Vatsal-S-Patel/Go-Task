@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"httpserver/dbconnection"
 	"httpserver/handler"
 	"log"
@@ -22,15 +21,16 @@ func main() {
 	http.HandleFunc("/users", handler.ShowUsersHandler)
 
 	// Start a Web Server Listening at Port 8080
-	fmt.Println("Starting Web Server at port 8080")
+	log.Println("Starting Web Server at port 8080")
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return
 	}
 
 	// This will close the exported Database
 	defer func() {
 		dbconnection.Database.Close()
-		fmt.Println("\nConnection Closed")
+		log.Println("\nConnection Closed")
 	}()
 }

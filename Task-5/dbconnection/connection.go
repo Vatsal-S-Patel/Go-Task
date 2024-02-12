@@ -3,16 +3,10 @@ package dbconnection
 import (
 	"database/sql"
 	"fmt"
+	"log"
 
+	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
-)
-
-// All configuration attributes
-const (
-	USER     = "vatsal"
-	PASSWORD = "vspatel3003"
-	HOST     = "localhost"
-	DBNAME   = "task5"
 )
 
 // Database is exported to perform CRUD operations
@@ -23,15 +17,22 @@ func ConnectDatabase() {
 
 	var err error
 
+	// Getting map from .env file and using godotenv package
+	envMap, err := godotenv.Read(".env")
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
 	// Connection String
-	connStr := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable", USER, PASSWORD, HOST, DBNAME)
+	connStr := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable", envMap["USER"], envMap["PASSWORD"], envMap["HOST"], envMap["DBNAME"])
 
 	// Database connection established with postgreSQL using connection string
 	Database, err = sql.Open("postgres", connStr)
 	if err != nil {
-		panic(err.Error())
+		log.Println(err.Error())
+		return
 	}
 
-	fmt.Println("Connection Established!")
-
+	log.Println("Connection Established!")
 }

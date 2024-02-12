@@ -1,6 +1,9 @@
 package dbconnection
 
-import "httpserver/model"
+import (
+	"httpserver/model"
+	"log"
+)
 
 // SelectAllUsers returns all user from database
 func SelectAllUsers() []model.User {
@@ -11,7 +14,8 @@ func SelectAllUsers() []model.User {
 	// Storing the result into res, produced by query execution
 	res, err := Database.Query(`SELECT fname, lname, dob, email, mono from "User";`)
 	if err != nil {
-		panic(err)
+		log.Println(err)
+		return usersData
 	}
 	defer res.Close()
 
@@ -22,7 +26,8 @@ func SelectAllUsers() []model.User {
 		// Scanning values from row and store it in user
 		err = res.Scan(&user.Fname, &user.Lname, &user.Dob, &user.Email, &user.Mono)
 		if err != nil {
-			panic(err)
+			log.Println(err)
+			return usersData
 		}
 		user.Dob = user.Dob[:10]
 		// appending user into usersData

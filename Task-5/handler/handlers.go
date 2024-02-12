@@ -1,10 +1,10 @@
 package handler
 
 import (
-	"fmt"
 	"html/template"
 	"httpserver/dbconnection"
 	"httpserver/model"
+	"log"
 	"net/http"
 )
 
@@ -26,7 +26,8 @@ func FormHandler(w http.ResponseWriter, r *http.Request) {
 	// Parsing the Form to extract value from it
 	err := r.ParseForm()
 	if err != nil {
-		fmt.Fprintf(w, "ParseForm() err %v", err)
+		log.Printf("ParseForm() err %v\n", err)
+		return
 	}
 
 	// user will made by extracting the values from Form using name attribute's value of input tag
@@ -41,7 +42,8 @@ func FormHandler(w http.ResponseWriter, r *http.Request) {
 	// This will insert the user into the databse
 	err = dbconnection.InsertUser(user)
 	if err != nil {
-		panic(err)
+		log.Println(err)
+		return
 	}
 
 	// Redirecting to success page if user successfully added into database
@@ -57,12 +59,14 @@ func ShowUsersHandler(w http.ResponseWriter, r *http.Request) {
 	// Parsing the userdata.html file and stored in t
 	t, err := template.ParseFiles("./static/userdata.html")
 	if err != nil {
-		panic(err)
+		log.Println(err)
+		return
 	}
 
 	// Writing the modified html file to writer with passed data
 	err = t.Execute(w, usersData)
 	if err != nil {
-		panic(err)
+		log.Println(err)
+		return
 	}
 }
