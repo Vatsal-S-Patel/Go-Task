@@ -50,11 +50,16 @@ func FormHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "http://localhost:8080/success.html", http.StatusSeeOther)
 }
 
-// ShowUserHandler is
+// ShowUserHandler is used to display all user
 func ShowUsersHandler(w http.ResponseWriter, r *http.Request) {
 
 	// usersData receives all user from database
-	var usersData []model.User = dbconnection.SelectAllUsers()
+	var usersData []model.User
+	usersData, err := dbconnection.SelectAllUsers()
+	if err != nil {
+		log.Println(err)
+		return
+	}
 
 	// Parsing the userdata.html file and stored in t
 	t, err := template.ParseFiles("./static/userdata.html")

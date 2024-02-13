@@ -9,30 +9,41 @@ import (
 	_ "github.com/lib/pq"
 )
 
-// Database is exported to perform CRUD operations
-var Database *sql.DB
+type application struct {
+	database *sql.DB
+}
+
+var app application
 
 // ConnectDatabase function connection the Database to particular database in postgreSQL
-func ConnectDatabase() {
+func ConnectDatabase() error {
 
 	var err error
 
 	// Getting map from .env file and using godotenv package
 	envMap, err := godotenv.Read(".env")
 	if err != nil {
-		log.Println(err)
-		return
+		return err
 	}
 
 	// Connection String
 	connStr := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable", envMap["USER"], envMap["PASSWORD"], envMap["HOST"], envMap["DBNAME"])
 
 	// Database connection established with postgreSQL using connection string
-	Database, err = sql.Open("postgres", connStr)
+	app.database, err = sql.Open("postgres", connStr)
+	log.Println("Connection Established!")
 	if err != nil {
-		log.Println(err.Error())
-		return
+		return err
 	}
 
-	log.Println("Connection Established!")
+	return nil
+}
+
+func CloseDatabase() {
+	err := app.database.Close()
+	log.Println("Database Connection Closed!")
+	if err != nil {
+		log.Println(err)
+		return
+	}
 }
