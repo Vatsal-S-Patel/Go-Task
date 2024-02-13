@@ -47,7 +47,7 @@ func FormHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Redirecting to success page if user successfully added into database
-	http.Redirect(w, r, "http://localhost:8080/success.html", http.StatusSeeOther)
+	http.Redirect(w, r, "/success.html", http.StatusSeeOther)
 }
 
 // ShowUserHandler is used to display all user

@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
@@ -16,15 +15,9 @@ type application struct {
 var app application
 
 // ConnectDatabase function connection the Database to particular database in postgreSQL
-func ConnectDatabase() error {
+func ConnectDatabase(envMap map[string]string) error {
 
 	var err error
-
-	// Getting map from .env file and using godotenv package
-	envMap, err := godotenv.Read(".env")
-	if err != nil {
-		return err
-	}
 
 	// Connection String
 	connStr := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable", envMap["USER"], envMap["PASSWORD"], envMap["HOST"], envMap["DBNAME"])

@@ -12,6 +12,7 @@ import (
 
 func main() {
 
+	// Getting map from .env file and using godotenv package
 	envMap, err := godotenv.Read(".env")
 	if err != nil {
 		log.Println(err)
@@ -19,7 +20,7 @@ func main() {
 	}
 
 	// This will connect to the database and the instance of Database is exported
-	err = dbconnection.ConnectDatabase()
+	err = dbconnection.ConnectDatabase(envMap)
 	// This will close the exported Database
 	defer dbconnection.CloseDatabase()
 	if err != nil {
