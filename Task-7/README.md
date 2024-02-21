@@ -46,11 +46,11 @@ First make .env file in root directory.
 
 Put all your details in same format
 
-
 ```
 USER        = "YOUR DATABASE USER_NAME"
 PASSWORD    = "YOUR DATABASE PASSWORD"
 HOST        = "YOUR DATABASE HOST_NAME"
 DBNAME      = "YOUR DATABASE NAME"
 SERVER_PORT = "YOUR SERVER_PORT"
+SECRET_KEY  = "YOUR JWT_SECRET_KEY"
 ```
