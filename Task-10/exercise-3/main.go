@@ -65,25 +65,25 @@ func main() {
 		// if yes, then outputChan will recieve true and FizzBuzz will print
 		fizzBuzzChan <- i
 		if <-outputChan {
-			fmt.Println("FizzBuzz")
+			fmt.Println(i, "FizzBuzz")
 			continue
 		}
 		// giving input to fizzChan first, so that it can check that number is multiple of 3 or not
 		// if yes, then outputChan will recieve true and Fizz will print
 		fizzChan <- i
 		if <-outputChan {
-			fmt.Println("Fizz")
+			fmt.Println(i, "Fizz")
 			continue
 		}
 		// giving input to buzzChan first, so that it can check that number is multiple of 5 or not
 		// if yes, then outputChan will recieve true and Buzz will print
 		buzzChan <- i
 		if <-outputChan {
-			fmt.Println("Buzz")
+			fmt.Println(i, "Buzz")
 			continue
 		}
 		// If number is neither multiple of 3 nor 5 nor of both, it will print
-		fmt.Println(i)
+		// fmt.Println(i)
 	}
 
 	// Prints execution time
