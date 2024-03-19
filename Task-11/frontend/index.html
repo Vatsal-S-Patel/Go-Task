@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Trains Golang</title>
+</head>
+<body>
+
+    <main>
+        <p>Trains</p>
+        <table>
+            <caption></caption>
+            <input type="text" placeholder="Search by Train No/ Train Name/ Source/ Destination..."  name="search" id="search">
+            <thead>
+                <th>#</th>
+                <th id="trainno">Train No</th>
+                <th id="trainname">Train Name</th>
+                <th id="source">Source</th>
+                <th id="destination">Destination</th>
+            </thead>
+            <tbody id="trains-list">
+                
+            </tbody>
+        </table>
+    </main>
+    <div class="buttons">
+        <button id="prev">PREV</button>
+        <p id="counter">  </p>
+        <button id="next">NEXT</button>
+    </div>
+    
+    <script src="./index.js"></script>
+    
+</body>
+</html>
