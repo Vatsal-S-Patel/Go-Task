@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Exercise</title>
+    <link rel="stylesheet" href="./css/form.css">
+</head>
+<body>
+
+    <header>
+        <h1>User Form</h1>
+    </header>
+    
+    <main>
+        <div class="form">
+            <form action="/register" method="post">
+                <div class="input-container">
+                    <label for="first-name">First Name</label>
+                    <input type="text" name="first-name" id="first-name" placeholder="Enter a First Name" />
+                </div>
+                <div class="input-container">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" name="last-name" id="last-name" placeholder="Enter a Last Name" />
+                </div>
+                <div class="input-container">
+                    <label for="date-of-birth">Date of Birth</label>
+                    <input type="date" name="date-of-birth" id="date-of-birth" placeholder="Enter a Date of Birth" />
+                </div>
+                <div class="input-container">
+                    <label for="email-id">Email</label>
+                    <input type="email" name="email-id" id="email-id" placeholder="Enter a Email" />
+                </div>
+                <div class="input-container">
+                    <label for="mono">Mobile Number</label>
+                    <input type="tel" name="mono" id="mono" placeholder="Enter a Mobile Number" />
+                </div>
+                <button type="submit" class="submit-button">Submit</button>
+            </form>
+        </div>
+    </main>
+    
+</body>
+</html>
